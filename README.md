@@ -1,54 +1,29 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Formulário de Cartão Interativo 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Essa é uma solução desse desafio: [https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw].
 
-Currently, two official plugins are available:
+## Sobre o desafio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Os usuários devem poder:
 
-## Expanding the ESLint configuration
+- Preencher o formulário e observar os detalhes do cartão atualizarem em tempo real
+- Receber mensagens de erro se o formulário for enviado em branco ou no formato errado
+- Observar o layout independente do tamanho da tela (responsividade)
+- Observar efeitos de mouse, foco e a interatividade com os elementos da página
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## A aplicação
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![](./screenshot.jpg)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tecnologias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Projeto criado React com Vite
+- Abordagem mobile-fist e responsivo
+- Estilização com Tailwind CSS
+- Estruturação de rotas com React Router para navegação entre páginas
+- Validação de formulário com Zod e Reack Hook Form
+- Uso de useForm e watch para monitorar valores do formulário
+- Criação de contexo (React Context API) para compartilhar dados entre páginas
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+
