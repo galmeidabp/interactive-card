@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CardHeader } from "../components/card-header"
+import { CardHeader } from "../components/CardHeader"
+import { useCard } from "../hooks/useCard"
 
 const formValidateSchema = z.object({
   cardholderName: z.string().min(1, "Cardholder name is required"),
@@ -20,7 +21,7 @@ const formValidateSchema = z.object({
 }).refine((data) => {
   const month = Number(data.expMonth)
   const year = Number(data.expYear)
-  return month >= 1 && month <= 12 && year >= 0 && year <= 99
+  return month >= 1 && month <= 12 && year >= 25 && year <= 99
 }, {
   path: ["expDate"],
   message: "Invalid date"
@@ -41,9 +42,17 @@ export function Main() {
   const cvc = watch("cvc", "")
 
   function handleConfirm() {
+    setCardData({
+      cardholderName,
+      cardNumber,
+      expMonth,
+      expYear,
+      cvc
+    })
     navigate("/completed")
   }
 
+  const { setCardData } = useCard()
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -63,7 +72,7 @@ export function Main() {
         <div className="flex flex-col gap-1">
           <p className="uppercase text-purple-950 font-semibold">card number</p>
           <input
-            {...register("cardNumber")} type="text" placeholder="e.g. 1234 5678 9123 0000" className={`border-1  py-3 rounded-md px-4 focus:outline-2  hover:bg-gray-100 focus:bg-gray-100 ${errors.cardNumber ? 'border-red-400 focus:outline-red-400' : 'border-gray-200 focus:outline-purple-950'}`} />
+            {...register("cardNumber")} type="text" placeholder="e.g. 0000 0000 0000 0000" className={`border-1  py-3 rounded-md px-4 focus:outline-2  hover:bg-gray-100 focus:bg-gray-100 ${errors.cardNumber ? 'border-red-400 focus:outline-red-400' : 'border-gray-200 focus:outline-purple-950'}`} />
           {errors.cardNumber && (
             <span className="text-red-400 text-sm">{errors.cardNumber.message}</span>
           )}
@@ -96,7 +105,7 @@ export function Main() {
             <input
               {...register("cvc")}
               type="text"
-              placeholder="e.g. 123"
+              placeholder="e.g. 000"
               className={`w-full border py-3 rounded-md px-4 text-sm focus:outline-2 hover:bg-gray-100 focus:bg-gray-100 ${errors.cvc ? 'border-red-400 focus:outline-red-400' : 'border-gray-200 focus:outline-purple-950'}`}
             />
             {errors.cvc && (

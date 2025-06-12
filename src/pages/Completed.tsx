@@ -1,16 +1,10 @@
 import { useNavigate } from "react-router-dom"
-import { CardHeader } from "../components/card-header"
+import { CardHeader } from "../components/CardHeader"
+import { useCard } from "../hooks/useCard"
 
-type CardHeaderProps = {
-  cardholderName: string
-  cardNumber: string
-  expMonth: string
-  expYear: string
-  cvc: string
-}
-
-export function Completed({ cardholderName, cardNumber, expMonth, expYear, cvc }: CardHeaderProps) {
+export function Completed() {
   const navigate = useNavigate()
+  const { cardData } = useCard()
 
   function handleGoBack() {
     navigate("/")
@@ -18,7 +12,7 @@ export function Completed({ cardholderName, cardNumber, expMonth, expYear, cvc }
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <CardHeader cardholderName={cardholderName} cardNumber={cardNumber} expMonth={expMonth} expYear={expYear} cvc={cvc} />
+      <CardHeader cardholderName={cardData.cardholderName} cardNumber={cardData.cardNumber} expMonth={cardData.expMonth} expYear={cardData.expYear} cvc={cardData.cvc} />
 
       <div className="max-w-md m-auto flex flex-col gap-3 font-display mt-26 md:max-w-lg lg:mt-auto justify-center items-center">
         <img src="./icon-complete.svg" alt="Complete" className="h-20 w-20" />
