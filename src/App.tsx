@@ -5,7 +5,7 @@ import { CardProvider } from "./context/CardContext";
 export function App() {
   return (
     <CardProvider>
-      <BrowserRouter basename="/interactive-card">
+      <BrowserRouter basename="/interactive-card/">
         <Router />
       </BrowserRouter>
     </CardProvider>
