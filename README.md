@@ -22,3 +22,4 @@ Os usuários devem poder:
 - Validação de formulário com Zod e Reack Hook Form
 - Uso de useForm e watch para monitorar valores do formulário
 - Criação de contexo (React Context API) para compartilhar dados entre páginas
+- Testes usando Vitest + React Testing Library

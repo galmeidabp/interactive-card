@@ -9,8 +9,8 @@ type CardHeaderProps = {
 export function CardHeader({ cardholderName, cardNumber, expMonth, expYear, cvc }: CardHeaderProps) {
   return (
     <div className="relative">
-      <img src="/bg-main-mobile.png" alt="background" className=" w-screen md:h-[300px] lg:hidden" />
-      <img src="/bg-main-desktop.png" alt="background" className="hidden lg:h-screen lg:block" />
+      <img src="./bg-main-mobile.png" alt="background" className=" w-screen md:h-[300px] lg:hidden" />
+      <img src="./bg-main-desktop.png" alt="background" className="hidden lg:h-screen lg:block" />
 
       <div
         className="absolute w-[370px] h-[200px] bg-[url('/bg-card-back.png')] bg-cover bg-center text-gray-300 rounded-lg
@@ -29,7 +29,7 @@ export function CardHeader({ cardholderName, cardNumber, expMonth, expYear, cvc 
             md:top-[25%] md:left-[15%]
             lg:max-w-lg lg:top-[20%] lg:left-[35%]"
       >
-        <img src="/card-logo.svg" alt="Logo do cartão" className="h-8" />
+        <img src="./card-logo.svg" alt="Logo do cartão" className="h-8" />
 
         <div className="flex flex-col mt-15 font-display">
           <p className="text-2xl tracking-widest">{cardNumber || '0000 0000 0000 0000'}</p>
